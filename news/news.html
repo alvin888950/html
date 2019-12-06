@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>新闻中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<style type="text/css">
+			body {
+				background: #a9a9a930;
+			}
+
+			.main {
+				width: 80.333333%;
+				margin-left: 7%;
+				background: white;
+				-webkit-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+				-moz-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+				box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+				padding: 10px 20px;
+				float: none
+			}
+
+			.left {
+				float: left;
+				width: 65%;
+				-webkit-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+				-moz-box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+				box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.3);
+			}
+
+			.news-img {
+				padding: 26px 20px 0px 20px;
+			}
+
+			.left img {
+				width: 100%;
+				max-width: 100%;
+
+			}
+
+			.left .new-content {
+				padding: 8px 15px 8px 33px;
+			}
+
+			.left .new-content .title {
+				line-height: 30px;
+				height: 50px;
+				font-size: 16px;
+				color: #333;
+			}
+
+			.left .new-content label {
+				padding-left: 20px;
+				font-size: 14px;
+				color: #b0b0b0;
+			}
+
+			.right {
+				width: 33%;
+				float: right;
+			}
+
+			.new {
+				texte-decoration: none;
+				margin-bottom: 10px;
+			}
+
+
+
+			.newsfoooter {
+				border-top: 1px solid #eeee;
+				border-bottom: 1px solid green;
+			}
+
+			.newsfoooter label {
+				padding-left: 20px;
+				font-size: 14px;
+				color: #b0b0b0;
+			}
+
+			.news-head {
+				margin: 0;
+				padding: 0;
+				font-family: "microsoft yahei";
+				box-sizing: border-box;
+				font-weight: normal;
+			}
+
+			.title-sort {
+				width: 75px;
+				height: 50px;
+				text-align: center;
+				display: inline-block;
+				vertical-align: middle;
+				padding-top: 13px;
+			}
+
+			.title-sort .day {
+				font-size: 15px;
+				font-weight: bold;
+			}
+
+			.title-sort .year {
+				font-size: 12px;
+				color: #B0B0B0;
+			}
+
+			.news-title {
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 5px;
+			}
+
+			.news-list {
+				margin-top: -10px;
+				height: 62px;
+				border-bottom: 1px dashed #B0B0B0;
+			}
+			.news-title-current{
+				color: #0c9;
+			}
+			.title-link:hover .news-title {
+				color: #0c9;
+				cursor: pointer;
+			}
+
+			.new-center {
+				margin-top: 15px;
+				font-size: 18px;
+				float: right;
+				margin-right: 10px;
+			}
+
+			.new-center:hover {
+				color: #0c9;
+				cursor: pointer;
+			}
+
+			.clear {
+				clear: both
+			}
+
+			@media (max-width: 992px) {
+				.main {
+					width: 82.333333%;
+					margin-left: 7%;
+				}
+
+				.left {
+					width: 100%;
+				}
+
+				.right {
+					float: none;
+					width: 100%;
+					clear: both;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.main {
+					width: 82.333333%;
+					margin-left: 7%;
+				}
+
+				.left {
+					width: 100%;
+				}
+
+				.right {
+					float: none;
+					width: 100%;
+					clear: both;
+				}
+			}
+
+			@media (max-width: 500px) {
+				.main {
+					width: 95%;
+					margin: 0%;
+				}
+
+				.left {
+					width: 100%;
+				}
+
+				.right {
+					float: none;
+					width: 100%;
+					clear: both;
+				}
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main" class="main">
+			<div class="left">
+				<div class="news-img">
+					<img id="img" src="img/loginBg.jpg" />
+				</div>
+				<div class="new-content">
+					<span class="title" id="title">怎么选择合适的伸缩器厂家？</span>
+					<br />
+					<label id="content">
+						怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？怎么选择合适的伸缩器厂家？
+					</label>
+				</div>
+				<div class="newsfoooter">
+					<p>
+						<label>&nbsp;&nbsp;<span id="date">2019-05-04</span></label>
+						<label style="float: right;margin-right: 40px;" id="week">星期三</label>
+					</p>
+				</div>
+			</div>
+			<div class="right">
+				<div class="news-other" id="newslist">
+					<!-- <div class="news-list">
+						<a class="title-link">
+							<div class="news-head">
+								<div class="title-sort">
+									<span class="day">09-28</span>
+									<span class="year">2019 YEAR</span>
+								</div>
+								<span class="news-title">实体店线下体验营销的风口</span>
+							</div>
+						</a>
+					</div>
+					 -->
+				</div>
+				<div class="new-center">
+					<label>新闻中心》</label>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script type="text/javascript">
+		var news=[
+			{id:1,title:"实体店线下体验营销的风口1",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:2,title:"实体店线下体验营销的风口2",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg2.jpg",date:"2019-09-09",week:"星期二"},
+			{id:3,title:"实体店线下体验营销的风口3",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:4,title:"实体店线下体验营销的风口4",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:5,title:"实体店线下体验营销的风口5",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:6,title:"实体店线下体验营销的风口6",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:7,title:"实体店线下体验营销的风口7",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:8,title:"实体店线下体验营销的风口8",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:9,title:"实体店线下体验营销的风口9",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+			{id:10,title:"实体店线下体验营销的风口10",content:"实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口实体店线下体验营销的风口",img:"img/loginBg.jpg",date:"2019-09-09",week:"星期二"},
+		]
+		
+		$(function(){
+			show(0);
+		})
+		
+		function createList(index){
+			var html="";
+			$.each(news,function(i,item){
+				html+='<div class="news-list">';
+				html+='	<a class="title-link" onclick="show('+i+')">';
+				html+='		<div class="news-head">';
+				html+='			<div class="title-sort">';
+				html+='				<span class="day">09-28</span>';
+				html+='				<span class="year">2019 YEAR</span>';
+				html+='			</div>';
+				if(index==i){
+					html+='			<span class="news-title-current">实体店线下体验营销的风口</span>';
+				}else{
+					html+='			<span class="news-title">实体店线下体验营销的风口</span>';
+				}
+				html+='		</div>';
+				html+='	</a>';
+				html+='	</div>';
+			})
+			$("#newslist").html(html);
+		}
+		
+		function show(index){
+			var item=news[index];
+			$("#title").html(item.title);
+			$("#content").html(item.content);
+			$("#date").html(item.date);
+			$("#week").html(item.week);
+			document.getElementById("img").src=item.img;
+			createList(index);
+		}
+	</script>
+</html>
