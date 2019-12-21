@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" id="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/ji-list.css" />
+		<link rel="shortcut icon" type="images/x-icon" href="img/public/favicon.ico">
+		<style type="text/css">
+			.productType {
+				box-shadow: 1px 1px 3px 0 rgba(14, 14, 14, 0.71);
+				width: 30.5%;
+				float: left;
+				margin-left: 2%;
+				height: 36px;
+				text-align: center;
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main" align="center">
+			<div class="row">
+				<div style="padding: 10px;">
+					<video style="height: 200px;" src="https://vdept.bdstatic.com/757a786131566b50423166784c77767a/45747341736b4243/7711282917d47cf75459c62a71f6aa9b1b81e577e5f8f6561df361cd7bf86980a745b536c40e4ddc393d20c1fbb21337.mp4?auth_key=1576897363-0-0-27d1b1c4f3fc57c962ce8ed802cd30c8"
+					 controls="controls">
+						<video>
+				</div>
+				<div class="head" align="center">
+					<label class="productType">
+						三黄鸡
+					</label>
+					<label class="productType">
+						放养鸡
+					</label>
+					<label class="productType">
+						大公鸡
+					</label>
+					<label class="productType">
+						小鸡仔
+					</label>
+					<div style="clear: both;"></div>
+				</div>
+				<div class="content" id="watch-list">
+					<div style="padding: 40px;">
+						<label>正在加载中...</label>
+					</div>
+				</div>
+				<!-- 模态框效果 -->
+				<div id="imgModal" class="ivu-drawer-mask2" align="center">
+					<a href="javascript:close()"><img src="img/public/close.png" class="close"></a>
+					<img id="imgShow" src="" class="imgshow" />
+					<p style="color:white">实拍图</p>
+					<div class="small-img" id="realimg">
+					</div>
+				</div>
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+			<a href="https://www.cnzz.com/stat/website.php?web_id=1278308112" target="_blank" title="站长统计">站长统计</a>
+	</body>
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/ji.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/realimgJson.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var show = false;
+		var gender = 1;
+		var showdata = [];
+
+		function showDrawer() {
+			if (show == false) {
+				show = true;
+				$(".ivu-drawer-mask").css("display", "block");
+			} else {
+				show = false;
+				$(".ivu-drawer-mask").css("display", "none");
+			}
+		}
+
+		function getMousePos(event) {
+			var e = event || window.event;
+			if (e.clientX > 200) {
+				showDrawer();
+			}
+		}
+		//关闭modal
+		function close() {
+			$(".ivu-drawer-mask2").css("display", "none");
+			//关闭拖放
+			document.getElementById("viewport").setAttribute('content',
+				'user-scalable=no, width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=1');
+		}
+
+		//点击手表事件
+		function clickWatch(id) {
+			//
+			if (document.getElementById("yes_" + id).style.display == "block") {
+				document.getElementById("yes_" + id).style.display = "none";
+				return;
+			}
+			document.getElementById("yes_" + id).style.display = "block";
+			//允许拖放
+			document.getElementById("viewport").setAttribute('content',
+				'user-scalable=yes, width=device-width, minimum-scale=1, initial-scale=1, maximum-scale=2');
+			$(".ivu-drawer-mask2").css("display", "block");
+			document.getElementById("imgShow").src = document.getElementById("img_" + id).src;
+			showRealImg(id, document.getElementById("img_" + id).src);
+		}
+		//点击实拍图
+		function clickRealImg(url) {
+			document.getElementById("imgShow").src = url;
+		}
+		//搜索
+		function search() {
+			var name = $("#search").val();
+			if (name == undefined || name == "") {
+				showWatch(showdata);
+				return;
+			}
+			var data = [];
+			showdata.forEach(item => {
+				item.id += '';
+				if ((item.name.indexOf(name) > -1 || item.id.indexOf(name) > -1)) {
+					data.push(item);
+				}
+			})
+			showWatch(data);
+		}
+		//选择品牌查询
+		function searchType(id) {
+			showdata = getList(id);
+			showWatch(showdata);
+			showDrawer();
+		}
+		$(function() {
+			//如果PC,不允许访问
+			if (IsPC()) {
+				window.location.href = "tip.html";
+			} else {
+				$("#man").addClass("border");
+				showdata = getList(1);
+				showType();
+				search();
+			}
+		});
+		$(window).scroll(function() {
+			if ($(this).scrollTop() > 20) {
+				$(".head").addClass("scroll");
+			} else {
+				$(".head").removeClass("scroll");
+			}
+		});
+		//性别查询
+		function genderSearch(type) {
+			gender = type;
+			search();
+			if (gender == 1) {
+				$("#man").addClass("border");
+				$("#woman").removeClass("border");
+			} else {
+				$("#woman").addClass("border");
+				$("#man").removeClass("border");
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		function IsPC() {
+			var userAgentInfo = navigator.userAgent;
+			var Agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPad", "iPod"];
+			var flag = true;
+			for (var v = 0; v < Agents.length; v++) {
+				if (userAgentInfo.indexOf(Agents[v]) > 0) {
+					flag = false;
+					break;
+				}
+			}
+			return flag;
+		}
+		//加载所有手表
+		function showWatch(showdata) {
+			var html = "";
+			showdata.forEach(item => {
+				if (item.gender != gender) {
+					return true;
+				}
+				html += '<div class="watch" id="id_' + item.id + '">';
+				html += '<a onclick="clickWatch(' + item.id + ')">';
+				html += '	<label class="num">编号:' + item.id + '</label>';
+				html += '		<img class="yesimg" id="yes_' + item.id + '" src="img/public/yes.png">';
+				html += '	<img class="indeximg" id="img_' + item.id + '" src="' + item.img + '" title="' + item.name + '"/>';
+				html += '	<span class="name">' + item.name + '</span>';
+				html += '</a>'
+				html += '</div>';
+			})
+			if (html == "") {
+				html += '<div style="padding:40px"><label>没有找到相关手表！</label></div>'
+				$("#watch-list").html(html);
+				return;
+			}
+			$("#watch-list").html(html);
+		}
+		//加载所有品牌
+		function showType() {
+			var html = "";
+			watchtype.forEach(item => {
+				html += '<div class="product-type">';
+				html += '	<a onclick="searchType(' + item.id + ')"><img src="' + item.img + '" /></a>';
+				html += '</div>';
+			})
+			$("#watch-type").html(html);
+		}
+		//加载手表的实拍图
+		function showRealImg(id, url) {
+			var watch = {};
+			showdata.forEach(item => {
+				if (item.id === id) {
+					watch = item;
+					return false;
+				}
+			});
+			var realData = [];
+			realImgData.forEach(item => {
+				if (item.type == watch.pid && item.id == id) {
+					realData = item.data;
+					return false;
+				}
+			})
+			if (realData.length == 0) {
+				$("#realimg").html("<label style='color: white;'>暂无实拍图</label>");
+				return;
+			}
+			var html = '<a href="javascript:clickRealImg(\'' + url + '\')"><img src="' + url + '"></a>';
+			realData.forEach(item => {
+				html += '<a href="javascript:clickRealImg(\'' + item.img + '\')"><img src="' + item.img + '"></a>';
+			})
+			$("#realimg").html(html);
+		}
+	</script>
+</html>
